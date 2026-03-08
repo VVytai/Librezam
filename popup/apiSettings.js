@@ -1,4 +1,4 @@
-import { getStorage, setStorage } from "../storageHelper/storageHelper.js"
+import { getStorage, setStorage } from "../common/storageHelper.js"
 auddToken.value = await getStorage("auddToken")
 auddToken.addEventListener("change", async () => {
     await setStorage("auddToken", auddToken.value)

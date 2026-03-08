@@ -1,4 +1,4 @@
-import { getStorage } from "../storageHelper/storageHelper.js"
+import { getStorage } from "../common/storageHelper.js"
 export async function auddGuess(audio) {
     let response = await getResponse(audio)
     console.log(JSON.stringify(response))

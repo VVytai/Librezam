@@ -1,7 +1,7 @@
 import { Recognize } from "/backendModules/Recognize.js"
-import { getStorage, setStorage } from "../storageHelper/storageHelper.js"
+import { getStorage, setStorage } from "../common/storageHelper.js"
 import { t } from "./i18n.js"
-import { STREAMING_PROVIDERS } from "./streamingProvidersSettings.js"
+import { STREAMING_PROVIDERS } from "../common/streamingProviders.js"
 
 init()
 

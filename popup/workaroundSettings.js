@@ -1,4 +1,4 @@
-import { getStorage, setStorage } from "../storageHelper/storageHelper.js"
+import { getStorage, setStorage } from "../common/storageHelper.js"
 
 // Helper function to filter empty lines from textarea values
 const filterEmptyLines = (text) => text.split("\n").filter(line => line.trim() !== "")

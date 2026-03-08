@@ -1,4 +1,4 @@
-import { getStorage } from "../storageHelper/storageHelper.js"
+import { getStorage } from "../common/storageHelper.js"
 
 export async function tencentGuess(audio) {
     let pcm = await convertToPCM(audio)

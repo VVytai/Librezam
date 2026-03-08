@@ -1,4 +1,4 @@
-import { getStorage, setStorage, Defaults } from "../storageHelper/storageHelper.js"
+import { getStorage, setStorage, Defaults } from "../common/storageHelper.js"
 
 // Clear History
 M.Modal.init(modalConfirmClear, null);

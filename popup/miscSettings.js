@@ -1,4 +1,4 @@
-import { getStorage, setStorage } from "../storageHelper/storageHelper.js"
+import { getStorage, setStorage } from "../common/storageHelper.js"
 import { t, reloadTranslations, translatePage } from "./i18n.js"
 
 isRecordAnotherTab.checked = await getStorage("isRecordAnotherTab")

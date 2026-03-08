@@ -1,23 +1,6 @@
-import { getStorage, setStorage, Defaults } from "../storageHelper/storageHelper.js"
+import { getStorage, setStorage, Defaults } from "../common/storageHelper.js"
 import { t } from "./i18n.js"
-
-// Available streaming providers with their display names and icons
-export const STREAMING_PROVIDERS = {
-    'apple': { name: 'Apple Music', icon: '/images/apple.png' },
-    'deezer': { name: 'Deezer', icon: '/images/deezer.png' },
-    'spotify': { name: 'Spotify', icon: '/images/spotify.png' },
-    'youtube': { name: 'YouTube', icon: '/images/youtube.png' },
-    'youtube_music': { name: 'YouTube Music', icon: '/images/ytmusic.png' },
-    'kkbox': { name: 'KKBOX', icon: '/images/kkbox.png' },
-    'soundcloud': { name: 'SoundCloud', icon: '/images/soundcloud.png' },
-    'tidal': { name: 'Tidal', icon: '/images/tidal.png' },
-    'beatport': { name: 'Beatport', icon: '/images/beatport.png' },
-    'qq_music': { name: 'QQ Music', icon: '/images/qqmusic.png' },
-    'netease_music': { name: 'Netease Music', icon: '/images/netease.png' },
-    'google_search': { name: 'Google Search', icon: '/images/google.png' },
-    'duckduckgo_search': { name: 'DuckDuckGo Search', icon: '/images/duckduckgo.png' },
-    'musicbrainz': { name: 'MusicBrainz', icon: '/images/musicbrainz.png' }
-}
+import { STREAMING_PROVIDERS } from "../common/streamingProviders.js"
 
 let selectedProviders = []
 let availableProviders = []

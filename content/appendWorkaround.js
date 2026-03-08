@@ -1,5 +1,5 @@
 async function mainInjector() {
-    const { getStorage } = await import(chrome.runtime.getURL("../storageHelper/storageHelper.js"))
+    const { getStorage } = await import(chrome.runtime.getURL("../common/storageHelper.js"))
     if(await getStorage("enableExperimentalFix") && !await testHostByKey("noAppendHosts")) {
         injectScript("fixAudioBufferSourceNode.js")
     }
@@ -23,7 +23,7 @@ function injectScript(src) {
     }
 }
 async function testHostByKey(key){
-    const { getStorage } = await import(chrome.runtime.getURL("../storageHelper/storageHelper.js"))
+    const { getStorage } = await import(chrome.runtime.getURL("../common/storageHelper.js"))
     let hosts = await getStorage(key)
     return hosts.includes(location.hostname)
 }

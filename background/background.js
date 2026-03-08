@@ -1,5 +1,5 @@
 import { Recognize } from "/backendModules/Recognize.js"
-import { getStorage, setStorage } from "../storageHelper/storageHelper.js"
+import { getStorage, setStorage } from "../common/storageHelper.js"
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if(chrome.offscreen) {

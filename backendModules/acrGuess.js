@@ -1,4 +1,4 @@
-import { getStorage, Defaults } from "../storageHelper/storageHelper.js"
+import { getStorage, Defaults } from "../common/storageHelper.js"
 export async function acrGuess(audio) {
     let response = await getResponse(audio)
     console.log(JSON.stringify(response))

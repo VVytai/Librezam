@@ -1,2 +1,2 @@
-import { getStorage } from "../storageHelper/storageHelper.js"
+import { getStorage } from "../common/storageHelper.js"
 document.body.style.backgroundImage = await getStorage("bgImage")
