@@ -465,15 +465,6 @@ function showStatus(msg) {
     }
 }
 
-// TODO: makni
-window.addEventListener("message", e => {
-  if (e.data?.type === "OOF") {
-    showStatus(e.data?.msg)
-    notification.classList.add("show", "pulse", "recognizing")
-    circler.style.display = "flex"
-  }
-});
-
 async function autoModeController() {
     isAutoMode.checked = await sendMessagePromises({action: "QueryAutoMode"}).then(r => Boolean(r?.[0]))
     isAutoMode.addEventListener("change", async evt => {
