@@ -32,13 +32,17 @@ chrome.commands?.onCommand.addListener(async (command) => {
 })
 
 async function CORSRecord(mediaSrc, currentTime, ms){
-    let elem = new Audio(mediaSrc)
-    console.log(elem)
-    elem.crossOrigin = "anonymous"
-    elem.currentTime = currentTime
+    try {
+        let elem = new Audio(mediaSrc)
+        console.log(elem)
+        elem.crossOrigin = "anonymous"
+        elem.currentTime = currentTime
 
-    await elem.play()
-    return await recordElem(elem, ms)
+        await elem.play()
+        return await recordElem(elem, ms)
+    } catch {
+        return []
+    }
 }
 
 async function AutoGuess(audios) {
