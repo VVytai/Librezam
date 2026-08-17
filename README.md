@@ -16,7 +16,7 @@ Requests unrelated to music recognition, such as telemetry, will not be made.
 This is unofficial project and is not affiliated or supported by *Shazam ltd.*
 
 ## Screenshot
-![304658](https://github.com/user-attachments/assets/bf07a292-4f6e-4d16-91ad-dd07801825bd)
+![](/readme-screenshot.png)
 
 
 ## Third-party libraries/Referenced codes
