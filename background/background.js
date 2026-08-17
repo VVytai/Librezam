@@ -99,7 +99,7 @@ async function showNotification(result) {
             type: "basic",
             iconUrl: result.art,
             title: "Song recognized!",
-            message: `${result.artist} - ${result.title}(${result.album})`,
+            message: `${result.artist} - ${result.title} (${result.album})`,
             priority: 2
         })
     }
