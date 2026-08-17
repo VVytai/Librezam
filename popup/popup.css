@@ -1,8 +1,14 @@
 :root {
     --brand-color: rgb(26,112,216);
-    --banner-height: 56px;
+    --banner-height: 48px;
     --outer-margin: 8px;
     --round-button-size: 32px;
+    --page-padding-x: 12px;
+    --page-padding-bottom: 16px;
+    --space-xs: 6px;
+    --space-sm: 10px;
+    --space-md: 14px;
+    --space-lg: 20px;
     color-scheme: dark;
     --md-sys-color-primary: var(--md-sys-color-primary-dark);
     --md-sys-color-on-primary: var(--md-sys-color-on-primary-dark);
@@ -38,12 +44,19 @@
 
 
 body {
+    margin: 0;
+    box-sizing: border-box;
     width: 350px;
     height: 500px;
     background-image: url("/images/background-2.jpg"); /*default*/
-    background-size: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--md-sys-color-background);
     background-attachment: fixed;
+    overflow-x: hidden;
     overflow-y: auto;
+    
 }
 
 body.main {
@@ -140,8 +153,11 @@ body.main {
 
 /* dropdown menu styles */
 #dropdownMenu {
-    width: 65% !important;
-    top: 42px !important;
+    width: min(88vw, 320px) !important;
+    right: var(--outer-margin) !important;
+    left: auto !important;
+    top: 50px !important;
+    overflow: hidden;
 }
 
 .dropdown-content {
@@ -157,20 +173,36 @@ body.main {
     padding: 12px 16px !important;
     display: flex !important;
     align-items: center !important;
+    gap: 10px;
+    white-space: normal;
+    line-height: 1.3;
     &:hover {
         background-color: rgba(15,100,150,0.3) !important;
     }
 }
 
+.dropdown-content li > a .material-icons.left,
+.auto-mode-toggle .material-icons.left {
+    margin: 0 !important;
+    float: none !important;
+    flex: 0 0 auto;
+}
+
+.dropdown-content li > a span {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
 .dropdown-content li.divider {
-    background-color: color-mix(in srgb,var(--md-sys-color-outline-variant) 30%, transparent 70%) !important;
-    margin: 8px 0 !important;
+    background-color: color-mix(in srgb,var(--md-sys-color-outline-variant) 30%, transparent 80%) !important;
+    margin: 1px 0 !important;
 }
 
 .auto-mode-toggle {
     padding: 12px 16px !important;
     display: flex !important;
     align-items: center !important;
+    gap: 10px;
     color: var(--md-sys-color-on-surface) !important;
     cursor: pointer !important;
     &:hover {
@@ -179,10 +211,28 @@ body.main {
 }
 
 .auto-mode-toggle input[type="checkbox"] {
-    margin-right: 12px !important;
+    order: 3;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    flex: 0 0 auto;
+}
+
+.auto-mode-toggle input[type="checkbox"] + span {
+    padding-left: 0 !important;
+    padding-right: 30px;
+}
+
+.auto-mode-toggle input[type="checkbox"] + span::before,
+.auto-mode-toggle input[type="checkbox"] + span::after {
+    left: auto !important;
+    right: 0;
+    margin-left: 0 !important;
 }
 
 .auto-mode-toggle span {
+    order: 2;
+    flex: 1 1 auto;
+    min-width: 0;
     color: var(--md-sys-color-on-surface) !important;
     font-size: 14px !important;
 }
@@ -235,7 +285,7 @@ body.main {
 
 #notification.text-error {
     justify-content: flex-start;
-    /* margin-left: 10px; */
+    margin-left: 8px;
 }
 
 #notification.pulse {
@@ -392,8 +442,8 @@ body.main {
 }
 
 /* toggle automode */
-label:has(#isAutoMode) {
-    margin:10px
+[type="checkbox"].filled-in:checked + span:not(.lever)::before {
+	right: 10px;
 }
 
 
@@ -402,7 +452,8 @@ label:has(#isAutoMode) {
 hr {
     width:96%;
     border-radius:96%;
-    margin-top:0px;
+    margin-top: 2px;
+    margin-bottom: 6px;
     padding-top:0px;
     color: color-mix(in srgb, var(--md-sys-color-outline-variant) 90%, transparent 10%);
 }
@@ -414,7 +465,7 @@ hr {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    padding: var(--outer-margin);
+    padding: 4px var(--outer-margin) 0 var(--outer-margin);
     max-height: 390px;
     overflow-y: auto;
     flex: 1;
@@ -528,13 +579,22 @@ hr + div {
 }
 
 #historyControls {
-    margin-bottom: 1px !important;
+    margin-bottom: 4px !important;
     flex-shrink: 0;
     backdrop-filter: blur(5px);
-    padding: 3px;
+    padding: 6px 8px;
     border-radius: 8px;
-    margin: 1px;
+    margin: 0 var(--outer-margin);
     text-align: center;
+}
+
+#historyControls .btn-small {
+    margin: 2px;
+}
+
+.sort-icon {
+    font-size: 16px;
+    vertical-align: middle;
 }
 
 /* Result element that contains both the info and links to streaming services*/
@@ -556,11 +616,11 @@ hr + div {
     align-items: flex-start;
     text-align: start;
     flex: 1;
-    gap: 10px;
+    gap: 12px;
     height: 180px;
-    padding-left: 28px;
+    padding-left: var(--space-lg);
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: var(--space-sm);
     z-index: 2;
     text-shadow: 
         0 1px 2px rgba(0, 0, 0, 0.8),
@@ -625,7 +685,6 @@ hr + div {
     justify-content: center;
     margin: 0;
     padding: 0;
-    outline: 1px solid grey;
     border-radius: 999px;
     background-color: rgba(15, 100, 150, 0.3);
     backdrop-filter: blur(50px);
@@ -656,7 +715,7 @@ hr + div {
     .bg-selection,
     form
     {
-        margin-inline: 3% !important;
+        margin-inline: 0 !important;
     }
 }
 /* header styling */
@@ -677,15 +736,63 @@ nav.navbar {
 
 /* Add padding to body content to account for fixed header */
 body:has(nav.navbar) {
-    padding-top: 64px !important;
+    padding: calc(var(--banner-height) + var(--space-sm)) var(--page-padding-x) var(--page-padding-bottom) !important;
+    overflow-x: hidden;
+}
+
+body:has(nav.navbar) > :not(nav):not(script) {
+    margin-inline: 0;
+}
+
+body:has(nav.navbar) h5 {
+    margin: 0 0 var(--space-sm);
+}
+
+body:has(nav.navbar) h6 {
+    margin: var(--space-md) 0 var(--space-xs);
+}
+
+body:has(nav.navbar) p,
+body:has(nav.navbar) .input-field,
+body:has(nav.navbar) form,
+body:has(nav.navbar) .section {
+    margin-top: 0;
+    margin-bottom: var(--space-md);
+}
+
+body:has(nav.navbar) label {
+    display: inline-block;
+    margin-bottom: var(--space-xs);
+}
+
+body:has(nav.navbar) input[type="text"],
+body:has(nav.navbar) select.browser-default,
+body:has(nav.navbar) textarea.materialize-textarea {
+    margin: 0;
+    width: 100%;
+    border: 1px solid color-mix(in srgb,var(--md-sys-color-outline-variant) 50%, transparent 50%);
+    border-radius: 6px;
+    background-color: rgba(15,100,150,0.06);
+    color: var(--md-sys-color-on-surface);
+    padding: 8px 10px;
+    box-sizing: border-box;
+}
+
+body:has(nav.navbar) select.browser-default {
+    height: 38px;
+}
+
+body:has(nav.navbar) textarea.materialize-textarea {
+    min-height: 72px;
+    resize: vertical;
 }
 nav .brand-logo, nav .back_button {
     color: var(--brand-color) !important;
 }
 
 nav .back_button {
-    margin-left:10px !important;
-    padding-inline:5px !important;
+    margin-left: 6px !important;
+    padding-inline: 8px !important;
     width:52px !important;
     &:hover {
         transform:scale(1.2) !important;
@@ -694,8 +801,8 @@ nav .back_button {
 /* recording length input field */
 .input-field #recordLength {
     font-size:32px !important;
-    margin-inline:3% !important;
-    width: 94% !important;
+    margin-inline: 0 !important;
+    width: 100% !important;
     padding:12px 12px !important;
     border: 1px solid color-mix(in srgb,var(--md-sys-color-outline-variant) 50%, transparent 50%) !important;
     border-radius:5px !important;
@@ -708,7 +815,7 @@ nav .back_button {
 /* recognize backend input */
 .input-field.col.s12 {
     & .select-wrapper {
-        margin-inline:-3% !important;
+        margin-inline: 0 !important;
         width:100% !important;
         border-radius:10px;
     }
@@ -721,7 +828,7 @@ nav .back_button {
 
 /* clear history button */
 body a[class="btn filled icon-left modal-trigger"] {
-    margin: 12px 3% !important;
+    margin: 12px 0 !important;
     border: 1px solid color-mix(in srgb,var(--md-sys-color-outline-variant) 50%, transparent 50%) !important;
     border-radius:5px !important;
     &:hover {
@@ -732,9 +839,9 @@ body a[class="btn filled icon-left modal-trigger"] {
 
 /* background selection options */
 .bg-selection {
-    margin-inline:3%;
+    margin-inline:0;
     padding-bottom:5px;
-    width: 94%;
+    width: 100%;
     height:auto;
 }
 .bg-opt-container {
@@ -770,8 +877,8 @@ body a[class="btn filled icon-left modal-trigger"] {
    Fallback rules (Settings)
 -----------------------------------------------------------*/
 #fallbackRulesSection {
-    margin-inline: 3%;
-    margin-top: 8px;
+    margin-inline: 0;
+    margin-top: 4px;
 }
 #fallbackRulesSection > h5 {
     margin-bottom: 6px;
@@ -928,11 +1035,11 @@ body a[class="btn filled icon-left modal-trigger"] {
 
 /* Streaming Providers Settings Styles */
 .container {
-    padding: 20px;
+    padding: 0;
 }
 
 .selected-providers, .available-providers {
-    margin: 20px 0;
+    margin: var(--space-lg) 0;
 }
 
 .selected-list {
@@ -1037,10 +1144,85 @@ body a[class="btn filled icon-left modal-trigger"] {
 
 /* Reset button styles */
 .reset-section {
-    margin-top: 30px;
+    margin-top: 24px;
     text-align: center;
-    padding: 20px 0;
+    padding: 16px 0 6px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.collection {
+    margin: 4px 0 0;
+    border-radius: 10px;
+    border: 1px solid color-mix(in srgb, var(--md-sys-color-outline-variant) 35%, transparent 65%);
+    background-color: rgba(15, 100, 150, 0.06);
+    backdrop-filter: blur(14px);
+}
+
+.collection .collection-item {
+    padding: 14px 16px;
+    background-color: transparent;
+    border-bottom-color: color-mix(in srgb, var(--md-sys-color-outline-variant) 25%, transparent 75%);
+}
+
+.collection .collection-item .badge {
+    color: color-mix(in srgb, var(--md-sys-color-on-surface) 70%, transparent 30%);
+}
+
+.inline-button-row {
+    margin-top: var(--space-sm);
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.caption-muted {
+    margin-top: 0;
+}
+
+.caption-muted.small {
+    font-size: 12px;
+}
+
+.text-center-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 32px);
+    max-width: 320px;
+    margin: 0;
+    text-align: center;
+}
+
+.fixed-height-textarea {
+    height: 72px;
+}
+
+.settings-action {
+    margin: 0 0 var(--space-sm);
+}
+
+.settings-action:last-of-type {
+    margin-bottom: var(--space-md);
+}
+
+.settings-action > button {
+    width: 100%;
+}
+
+@media (max-width: 360px) {
+    :root {
+        --page-padding-x: 10px;
+        --space-lg: 16px;
+    }
+
+    #resultTable {
+        padding-left: 14px;
+    }
+
+    #historyControls {
+        padding: 6px;
+    }
 }
 
 #resetProviders {
