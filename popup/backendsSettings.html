@@ -17,14 +17,14 @@
         <!-- Fallback Rules Section -->
         <div class="section" id="fallbackRulesSection">
             <h5 data-i18n="recognitionRules">Recognition Rules</h5>
-            <p class="grey-text text-darken-1" style="margin-top: -8px;" data-i18n="recognitionRulesDescription">
+            <p class="grey-text text-darken-1 caption-muted" data-i18n="recognitionRulesDescription">
                 Define recording lengths (ms) and the backend order to try when recognition fails.
             </p>
-            <p class="grey-text text-darken-1" style="margin-top: -8px; font-size: 12px;" data-i18n="recognitionRulesMobileHint">
+            <p class="grey-text text-darken-1 caption-muted small" data-i18n="recognitionRulesMobileHint">
                 <strong>Mobile:</strong> Long press on a chip to enter reorder mode, then tap other chips to reorder.
             </p>
             <div id="fallbackRulesContainer" class="fallback-rules-container"></div>
-            <div style="margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap;">
+            <div class="inline-button-row">
                 <button id="addFallbackRule" class="btn filled icon-left"><i class="material-icons">add</i><span data-i18n="addRule">Add Rule</span></button>
                 <button id="resetFallbackRules" class="btn-flat" data-i18n="resetToDefault">Reset to Default</button>
             </div>

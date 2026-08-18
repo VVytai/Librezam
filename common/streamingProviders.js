@@ -1,7 +1,7 @@
 export const STREAMING_PROVIDERS = {
     'apple': {
         name: 'Apple Music',
-        icon: '/images/apple.png',
+        icon: '/images/apple-music.png',
         url: 'https://music.apple.com/search?term=$s'
     },
     'deezer': {

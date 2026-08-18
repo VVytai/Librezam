@@ -16,7 +16,7 @@ Requests unrelated to music recognition, such as telemetry, will not be made.
 This is unofficial project and is not affiliated or supported by *Shazam ltd.*
 
 ## Screenshot
-![304658](https://github.com/user-attachments/assets/bf07a292-4f6e-4d16-91ad-dd07801825bd)
+![](/readme-screenshot.png)
 
 
 ## Third-party libraries/Referenced codes
@@ -27,3 +27,6 @@ This is unofficial project and is not affiliated or supported by *Shazam ltd.*
 * [Song-identifier](https://gitlab.com/losnappas/Song-identifier/-/blob/master/songid-react/src/record.js?ref_type=heads)([Unlicense](https://gitlab.com/losnappas/Song-identifier/-/blob/master/LICENSE?ref_type=heads)) //Algorithm of record audio from DOM Element
 * [Materialize](https://github.com/materializecss/materialize)([MIT](https://github.com/materializecss/materialize/blob/main/LICENSE)) //App interface
 * [Material Symbols & Icons](https://fonts.google.com/icons)([SIL Open Font License](https://openfontlicense.org/)) // App interface
+* Apple Music icon source: [Apple Music Identity Guidelines](https://marketing.services.apple/apple-music-identity-guidelines)
+* YouTube icon source: [YouTube Brand Resources](https://brand.youtube/youtube-icon/)
+* Google icon source: [Google Partner Marketing Hub — Branding Guidelines](https://partnermarketinghub.withgoogle.com/brands/google/branding-guidelines/how-to-show-googles-brand/)

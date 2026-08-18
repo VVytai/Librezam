@@ -1,2 +1,4 @@
 /dist/
 manifest.json
+.DS_Store
+/.vscode
